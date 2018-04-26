@@ -3,9 +3,8 @@
 <h2> <%=@title.name%></h2>
 
 
-<form method="post" action='/titles/<%=@title.id%>/delete'>
-
-  <input type="hidden" id="hidden" name="_method" value="delete">
-
-  <input type="submit" value="delete">
+<h2>Delete this title:</h2>
+<form method="post" action="/titles/<%= @title.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="delete" />
+  <input type="submit" value="Delete this title" />
 </form>

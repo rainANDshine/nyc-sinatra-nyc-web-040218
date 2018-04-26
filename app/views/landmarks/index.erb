@@ -3,8 +3,8 @@
 <h1>Landmarks</h1>
 <br>
 
-<%@titles.each do |el|%>
+<%@landmarks.each do |el|%>
 
-  <%=el.name%>
+  <p><%=el.name%> <%=el.year_completed%></p>
   <br>
 <%end%>
