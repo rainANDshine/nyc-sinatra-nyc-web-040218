@@ -25,8 +25,7 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do # create a new figure
-    binding.pry
-    figure = Figure.create(params[:figure])
+    figure = Figure.find_or_create_by(params[:figure])
     redirect to "figures/#{figure.id}"
   end
 
@@ -45,7 +44,6 @@ class FiguresController < ApplicationController
   end
 
   delete '/figures/:id/delete' do # delete a figure
-    binding.pry
     figure = Figure.find(params[:id])
     figure.delete
     redirect to "figures"
