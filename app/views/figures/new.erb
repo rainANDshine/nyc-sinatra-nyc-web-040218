@@ -1,5 +1,32 @@
+
 <h1>Create a new figure</h1>
 <form method="post" action="/figures">
   <label>Name: <input type="text" name="figure[name]" /></label>
-  <input type="submit" value="Submit new figure" id="submit" />
+  <br>
+  <br>
+
+  Title:
+  <select name="title">
+    <%@titles.each do |el|%>
+      <option value=<%=el.id%>><%=el.name%></option>
+    <%end%>
+  </select>
+  <br>
+  <br>
+
+  Landmark:
+  <select name="landmark">
+    <%@landmarks.each do |el|%>
+      <option value=<%=el.id%>><%=el.name%></option>
+    <%end%>
+  </select>
+  <br>
+  <br>
+
+<input type="submit" value="Submit new figure" id="submit" />
+
+
+
+
+
 </form>

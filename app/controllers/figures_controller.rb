@@ -1,4 +1,5 @@
 require 'pry'
+require_all 'app'
 class FiguresController < ApplicationController
   get '/figures' do # render page to display all figures
     @figures = Figure.all
@@ -6,6 +7,10 @@ class FiguresController < ApplicationController
   end
 
   get '/figures/new' do # render page to create a new figure
+    @landmarks = Landmark.all
+    @titles = Title.all
+
+
     erb :"figures/new"
   end
 
@@ -24,6 +29,14 @@ class FiguresController < ApplicationController
     figure = Figure.create(params[:figure])
     redirect to "figures/#{figure.id}"
   end
+
+# when a user creates or edits a figure, they should also be able
+#   to select or create a new landmark and/or title to associate to
+#   that figure. In other words, the form for a new figure and the
+#   form to edit a figure should allow the user to select from existing
+#   landmarks and title and create new landmarks and titles to associate
+#    to the figure.
+
 
   patch '/figures/:id' do # update a figure
     figure = Figure.find(params[:id])
