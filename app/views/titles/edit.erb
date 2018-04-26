@@ -1,0 +1,8 @@
+<h1>Edit a title!</h1>
+
+<form method="post" action="/title/<%=@title.id%>">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <input type="text" name="name" value="<%=@title.name%>"/>
+  <input type="submit" value="change"/>
+</form>
