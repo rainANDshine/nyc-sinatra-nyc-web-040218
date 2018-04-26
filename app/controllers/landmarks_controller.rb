@@ -35,4 +35,7 @@ class LandmarksController < ApplicationController
   end
 
 
+
+
+
 end
