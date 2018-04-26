@@ -1,2 +1,8 @@
 <h1>Figure information:</h1>
 <label><%= @figure.name %></label>
+
+<h2>Delete this figure:</h2>
+<form method="post" action="/figures/<%= @figure.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="delete" />
+  <input type="submit" value="Delete this figure" />
+</form>

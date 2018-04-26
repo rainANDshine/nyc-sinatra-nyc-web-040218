@@ -5,12 +5,6 @@ require 'rack/test'
 require 'capybara/rspec'
 require 'capybara/dsl'
 
-<<<<<<< HEAD
-=======
-# if defined?(ActiveRecord::Migrator) && ActiveRecord::Migrator.needs_migration?
-#   raise 'Migrations are pending run `rake db:migrate SINATRA_ENV=test` to resolve the issue.'
-# end
->>>>>>> 6b3c48b8fffdc3d5e19e75dcc5078d24345abf94
 
 RSpec.configure do |config|
   config.run_all_when_everything_filtered = true

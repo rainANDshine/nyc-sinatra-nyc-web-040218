@@ -1,5 +1,7 @@
-class FiguresController < Sinatra::Base
+require 'pry'
+class FiguresController < ApplicationController
   get '/figures' do # render page to display all figures
+    @figures = Figure.all
     erb :"figures/index"
   end
 
@@ -18,21 +20,21 @@ class FiguresController < Sinatra::Base
   end
 
   post '/figures' do # create a new figure
-    figure = Figure.create(params)
+    binding.pry
+    figure = Figure.create(params[:figure])
     redirect to "figures/#{figure.id}"
   end
 
-  patch '/figures/:id/edit' do # update a figure
+  patch '/figures/:id' do # update a figure
     figure = Figure.find(params[:id])
-    figure.update(params)
+    figure.update(params[:figure])
     redirect to "figures/#{figure.id}"
   end
 
-  delete '/figures/:id/delete' do
+  delete '/figures/:id/delete' do # delete a figure
+    binding.pry
     figure = Figure.find(params[:id])
     figure.delete
-    redirect to "figures/index"
+    redirect to "figures"
   end
-
-
 end
