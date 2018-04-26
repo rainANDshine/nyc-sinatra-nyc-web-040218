@@ -1,37 +1,37 @@
 require 'pry'
 class LandmarksController < ApplicationController
 
-  get '/title' do
-    @titles = Title.all
-    erb:'titles/index'
+  get '/landmark' do
+    @landmarks = Landmark.all
+    erb:'landmarks/index'
   end
 
-  post '/title' do
-    Title.find_or_create_by(name: params[:name])
-    @titles = Title.all
-    erb:"titles/index"
+  post '/landmark' do
+    Landmark.find_or_create_by(name: params[:name])
+    @landmarks = Landmark.all
+    erb:"landmarks/index"
   end
 
-  get '/title/new' do
-    erb:'titles/new'
+  get '/landmark/new' do
+    erb:'landmarks/new'
   end
 
-  get '/title/:id' do
-    @title = Title.find(params[:id])
-    erb:'titles/show'
+  get '/landmark/:id' do
+    @landmark = Landmark.find(params[:id])
+    erb:'landmarks/show'
   end
 
-  patch '/title/:id' do
+  patch '/landmark/:id' do
     binding.pry
-    @title = Title.find(params[:id])
-    @title.name = params[:name]
-    @title.save
-    erb:'titles/show'
+    @landmark = Landmark.find(params[:id])
+    @landmark.name = params[:name]
+    @landmark.save
+    erb:'landmarks/show'
   end
 
-  get '/title/:id/edit' do
-    @title = Title.find(params[:id])
-    erb:'titles/edit'
+  get '/landmark/:id/edit' do
+    @landmark = Landmark.find(params[:id])
+    erb:'landmarks/edit'
   end
 
 
