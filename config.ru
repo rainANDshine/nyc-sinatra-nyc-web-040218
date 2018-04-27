@@ -8,5 +8,5 @@ use Rack::MethodOverride
 
 use FiguresController
 use LandmarksController
-use TitlesController
+#use TitlesController
 run ApplicationController
